@@ -1,0 +1,2 @@
+h={mos:1996, nd: 2890}
+puts h.values

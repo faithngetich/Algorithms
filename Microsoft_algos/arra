@@ -1,0 +1,30 @@
+irb
+
+second = [1, "second"] # seconds in a second
+  minute = [60, "minute"] # seconds in a minute
+  hour = [3600, "hour"] # seconds in an hour
+  day = [86400, "day"] # seconds in a day
+  year = [31536000, "year"] # seconds in a year
+  s_array = [year, day, hour, minute, second]
+  
+  return "now" if s == 0 
+  formatted = []
+
+  s_array.each do |time|
+    break if seconds == 0
+    quotient = seconds/(time[0])
+    if quotient >= 1
+      time_string = quotient > 1 ? "#{time[1]}s" : "#{time[1]}"
+      formatted.push("#{quotient} #{time_string}") 
+      seconds -= quotient * (time[0])
+    end
+  end
+
+  case formatted.size
+    when 1
+      "#{formatted.join}"
+    when 2
+      "#{formatted.join(" and ")}"
+    else
+      "#{formatted[0..-2].join(", ")} and #{formatted[-1]}"
+  end
